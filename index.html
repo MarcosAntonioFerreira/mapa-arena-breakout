@@ -46,7 +46,6 @@ body {
 </div>
 
 <div id="mapa"></div>
-
 <script>
 /* =============================
    CONFIG
@@ -56,8 +55,8 @@ const API = 'https://script.google.com/macros/s/AKfycby9lq7f4DXcStMa0GJXgnJOmCco
 /* =============================
    ELEMENTOS
 ============================= */
-const container = document.getElementById('mapa-container');
 const mapa = document.getElementById('mapa');
+const container = mapa; // O PRÓPRIO MAPA É O CONTAINER
 
 /* =============================
    LOAD
@@ -124,7 +123,7 @@ mapa.addEventListener('click', async function (e) {
 /* =============================
    LIMPAR
 ============================= */
-async function limparTudo() {
+async function limpar() {
   await fetch(API + '?acao=limpar');
   removerTodosPontos();
 }
@@ -136,5 +135,7 @@ function removerTodosPontos() {
   container.querySelectorAll('.ponto').forEach(p => p.remove());
 }
 </script>
+
 </body>
 </html>
+
